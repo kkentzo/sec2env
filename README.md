@@ -24,8 +24,8 @@ Running `sec2env -name foo -region eu-central-1` will output the
 following text:
 
 ```
-alpha=1
-beta=2
+export alpha=1
+export beta=2
 ```
 
 If we wish to export these variables into the current environment, we

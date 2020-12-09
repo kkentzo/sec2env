@@ -12,7 +12,10 @@ secrets :)
 
 ## Build
 
-Running `go build -o sec2env` will output the `sec2env` executable.
+A [working go installation](https://golang.org/doc/install) is
+necessary to build the program. A `Makefile` is also provided; the
+default command (`make`) will build the program on the current
+platform.
 
 ## Example
 

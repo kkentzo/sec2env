@@ -6,3 +6,5 @@ builds:
     goarch:
       - amd64
       - arm64
+    ldflags:
+      - -s -w -X github.com/kkentzo/sec2env/cmd.GitCommit={{.Env.GITHUB_SHA}} -X github.com/kkentzo/sec2env/cmd.AppVersion={{.Env.GITHUB_REF_NAME}}

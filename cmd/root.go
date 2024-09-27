@@ -20,6 +20,7 @@ func New() *cobra.Command {
 	}
 	root.AddCommand(AwsCommand(globals))
 	root.AddCommand(AzureCommand(globals))
+	root.AddCommand(VersionCommand())
 	return root
 }
 

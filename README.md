@@ -1,8 +1,8 @@
 # sec2env
 
 `sec2env` is a very simple program that retrieves a secret from AWS
-secrets manager, parses the secret value as a json and prints all
-contained key, value pairs to standard output.
+secrets manager or Azure Key Vault, parses the secret value as a json
+and prints all contained key, value pairs to standard output.
 
 The purpose is to `eval` the resulting string in a shell and export
 all key, value pairs to the process environment.
@@ -13,17 +13,17 @@ secrets :)
 ## Build
 
 A [working go installation](https://golang.org/doc/install) is
-necessary to build the program. A `Makefile` is also provided; the
-default command (`make`) will build the program on the current
-platform.
+necessary to build the program. An `Orkfile` is also provided (the
+[`ork` program](https://github.com/kkentzo/ork) is needed to run the
+referenced tasks.
 
-## Example
+## Example (AWS)
 
 Let's assume that we have stored a secret in aws region `eu-central-1`
 with the name `foo` and we have stored the following key, value pairs
 in the secret: key `alpha` has value `1` and key `beta` has value 2.
 
-Running `sec2env -name foo -region eu-central-1` will output the
+Running `sec2env aws --name foo --region eu-central-1` will output the
 following text:
 
 ```
@@ -32,7 +32,7 @@ export beta=2
 ```
 
 If we wish to export these variables into the current environment, we
-need to do `eval $(sec2env -name foo -region eu-central-1)` in the
+need to do `eval $(sec2env aws --name foo --region eu-central-1)` in the
 shell.
 
 In case of an error, the program will return an exit value of 1 and

@@ -1,0 +1,11 @@
+default: build
+
+tasks:
+  - name: build
+    description: build the application
+    env:
+      - GOOS: linux
+        GOARCH: amd64
+        GO_TARGET: bin/sec2env
+    actions:
+      - go build -o ${GO_TARGET}
